@@ -1,7 +1,7 @@
 import { Project, SkillCategory, ExperienceItem, Certificate, NavItem, SectionId } from './types';
 
 // Replace this URL with your own photo URL
-export const PROFILE_IMAGE_URL = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+export const PROFILE_IMAGE_URL = new URL('../new professional photo.png', import.meta.url).href;
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: `#${SectionId.HERO}` },
@@ -15,23 +15,43 @@ export const NAV_ITEMS: NavItem[] = [
 export const SKILLS_DATA: SkillCategory[] = [
   {
     category: 'Programming Languages',
-    skills: ['TypeScript', 'JavaScript', 'Python', 'Rust', 'SQL'],
+    skills: ['React', 'Next.js', 'React Native', 'Node.js', 'TypeScript', 'JavaScript', 'Python', 'SQL'],
+    iconName: 'Code',
   },
   {
     category: 'AI/ML & LLM',
     skills: ['TensorFlow', 'PyTorch', 'Gemini API', 'LangChain', 'Hugging Face', 'OpenAI API'],
+    iconName: 'Brain',
   },
   {
     category: 'Data Science',
-    skills: ['Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Jupyter', 'Tableau'],
+    skills: ['Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Jupyter'],
+    iconName: 'BarChart3',
   },
   {
-    category: 'DevOps & Cloud',
-    skills: ['AWS', 'Google Cloud', 'Docker', 'Kubernetes', 'CI/CD', 'Git'],
+    category: 'Cloud',
+    skills: ['AWS', 'Google Cloud', 'Docker', 'Kubernetes', 'CI/CD', 'Git', 'GitHub', 'GitLab', 'Vercel', 'Render'],
+    iconName: 'Cloud',
   },
   {
-    category: 'Frontend',
-    skills: ['React', 'Next.js', 'Tailwind CSS', 'Redux', 'Framer Motion'],
+    category: 'Frontend Development',
+    skills: ['React', 'Next.js', 'React Native','Tailwind CSS', 'HTML5', 'CSS3' ],
+    iconName: 'Palette',
+  },
+  {
+    category: 'Backend Development',
+    skills: ['Node.js', 'Express.js', 'NestJS', 'REST APIs', 'JWT Authentication', 'WebSockets'],
+    iconName: 'Server',
+  },
+  {
+    category: 'Databases',
+    skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'SQLite', 'Redis', 'Firebase'],
+    iconName: 'Database',
+  },
+  {
+    category: 'Version Control',
+    skills: ['Git', 'GitHub', 'GitLab'],
+    iconName: 'GitBranch',
   },
 ];
 
@@ -83,7 +103,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     id: '3',
     role: 'Data Scientist Intern',
-    company: 'DataFlow Analytics',
+    company: 'Pioneer Artificial Intelligence Academy',
     period: '2018 - 2019',
     description: 'Analyzed large datasets to identify market trends. Developed classification models with 95% accuracy for customer churn prediction.',
   },

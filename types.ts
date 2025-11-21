@@ -11,6 +11,7 @@ export interface Project {
 export interface SkillCategory {
   category: string;
   skills: string[];
+  iconName?: 'Code' | 'Brain' | 'BarChart3' | 'Cloud' | 'Palette' | 'Server' | 'Database' | 'GitBranch';
 }
 
 export interface ExperienceItem {

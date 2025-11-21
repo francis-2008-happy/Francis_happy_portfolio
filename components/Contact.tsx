@@ -30,30 +30,34 @@ const Contact: React.FC = () => {
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Let's Work Together</h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg">
-              I'm always open to discussing product design, AI integration, or partnership opportunities. Feel free to reach out directly.
+              I am always open to collaborations involving full-stack software development, 
+              AI/ML integration, and data science solutions. I specialize in building efficient, 
+              scalable systems and creating intelligent, data-driven products.
+               If you’d like to collaborate on a project or explore partnership opportunities, 
+              I’d love to connect..
             </p>
 
             <div className="space-y-6">
               {/* Email Block */}
-              <a href="mailto:alex@example.com" className="group flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300">
+              <a href="francisbucci2@gmail.com" className="group flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300">
                 <div className="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Mail size={24} />
                 </div>
                 <div>
                     <div className="text-sm text-slate-500 dark:text-slate-500 font-medium mb-0.5">Email Me</div>
-                    <div className="text-lg font-semibold text-slate-900 dark:text-white">alex@example.com</div>
+                    <div className="text-lg font-semibold text-slate-900 dark:text-white">francisbucci21@gmail.com</div>
                 </div>
                 <ArrowRight className="ml-auto text-slate-300 dark:text-slate-700 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" size={20} />
               </a>
 
               {/* WhatsApp Block */}
-              <a href="https://wa.me/15550000000" target="_blank" rel="noreferrer" className="group flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300">
+              <a href="https://wa.me/+2349071400581" target="_blank" rel="noreferrer" className="group flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300">
                 <div className="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Phone size={24} />
                 </div>
                 <div>
                     <div className="text-sm text-slate-500 dark:text-slate-500 font-medium mb-0.5">WhatsApp</div>
-                    <div className="text-lg font-semibold text-slate-900 dark:text-white">+1 (555) 000-0000</div>
+                    <div className="text-lg font-semibold text-slate-900 dark:text-white">+234 907 140 0581</div>
                 </div>
                 <ArrowRight className="ml-auto text-slate-300 dark:text-slate-700 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" size={20} />
               </a>

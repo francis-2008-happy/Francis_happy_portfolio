@@ -1,4 +1,4 @@
-# Alex Sterling - AI Engineer Portfolio
+# Francis Happy - AI Engineer Portfolio
 
 A modern, responsive, and interactive portfolio website built with **React**, **TypeScript**, and **Tailwind CSS**. This project features a Gemini-powered AI Chatbot that answers questions about your experience and skills.
 

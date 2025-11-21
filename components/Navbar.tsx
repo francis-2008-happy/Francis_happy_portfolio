@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Terminal } from 'lucide-react';
-import { NAV_ITEMS } from '../constants';
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import { NAV_ITEMS, PROFILE_IMAGE_URL } from '../constants';
 
 interface NavbarProps {
   isDarkMode: boolean;
@@ -48,15 +48,19 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
             className="flex-shrink-0 flex items-center gap-3 cursor-pointer group" 
             onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
           >
-            <div className="relative flex items-center justify-center w-10 h-10 bg-indigo-600 rounded-xl text-white shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
-              <Terminal size={20} />
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden ring-2 ring-indigo-600 shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
+              <img 
+                src={PROFILE_IMAGE_URL} 
+                alt="Francis Happy" 
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg leading-none text-slate-900 dark:text-white tracking-tight">
-                Alex Sterling
+                Francis Happy
               </span>
               <span className="text-xs font-medium text-slate-500 dark:text-slate-400 tracking-wider uppercase">
-                Design Portfolio
+                Portfolio
               </span>
             </div>
           </div>

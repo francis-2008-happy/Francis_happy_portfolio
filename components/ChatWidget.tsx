@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X, Send, Loader2, Sparkles } from 'lucide-react';
-import { GoogleGenAI } from "@google/genai";
 import { EXPERIENCE_DATA, PROJECTS_DATA, SKILLS_DATA } from '../constants';
 
 interface Message {
@@ -11,7 +10,7 @@ interface Message {
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: "Hi! I'm Alex's AI Assistant. Ask me anything about Alex's projects, skills, or experience!" }
+    { role: 'model', text: "Hi! I'm Francis AI Assistant. Ask me anything about Francis projects, skills, or experience!" }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -27,14 +26,14 @@ const ChatWidget: React.FC = () => {
 
   // Context for the AI
   const portfolioContext = `
-    You are an AI assistant for Alex Sterling's portfolio website.
-    Here is Alex's background data:
+    You are an AI assistant for Francis Happy's portfolio website.
+    Here is Francis's background data:
     
     Skills: ${JSON.stringify(SKILLS_DATA)}
     Projects: ${JSON.stringify(PROJECTS_DATA)}
     Experience: ${JSON.stringify(EXPERIENCE_DATA)}
     
-    Answer questions as if you are a helpful assistant representing Alex. 
+    Answer questions as if you are a helpful assistant representing Francis. 
     Keep answers concise (under 100 words) and professional but friendly.
     If asked about contact info, direct them to the contact section or form.
   `;
@@ -60,16 +59,22 @@ const ChatWidget: React.FC = () => {
            return;
         }
 
-        const ai = new GoogleGenAI({ apiKey });
-        
+        // Dynamically import the client from the new package so the bundle
+        // doesn't break at build-time if the package shape changes.
+        const genaiModule: any = await import('@google/generative-ai');
+        const Client = genaiModule?.GoogleGenerativeAI || genaiModule?.default || genaiModule;
+        const ai: any = new Client({ apiKey });
+
         // Using gemini-2.5-flash for speed and efficiency
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: userMessage,
-            config: {
-                systemInstruction: portfolioContext,
-            }
-        });
+        // Keep the same call pattern as before but accept that the
+        // client may return different shapes; treat response as any.
+        const response: any = await ai.models?.generateContent?.({
+          model: 'gemini-2.5-flash',
+          contents: userMessage,
+          config: {
+            systemInstruction: portfolioContext,
+          }
+        }) || await ai.generate?.({ model: 'gemini-2.5-flash', input: userMessage, context: portfolioContext });
 
         const text = response.text;
         if (text) {
