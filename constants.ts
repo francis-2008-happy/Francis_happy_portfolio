@@ -1,7 +1,7 @@
 import { Project, SkillCategory, ExperienceItem, Certificate, NavItem, SectionId } from './types';
 
 // Replace this URL with your own photo URL
-export const PROFILE_IMAGE_URL = new URL('../new professional photo.png', import.meta.url).href;
+export const PROFILE_IMAGE_URL = new URL('/new professional photo.png', import.meta.url).href;
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: `#${SectionId.HERO}` },
