@@ -9,32 +9,32 @@ const About: React.FC = () => {
       color: "text-indigo-600 dark:text-indigo-400",
       bg: "bg-indigo-50 dark:bg-indigo-900/20",
       title: "AI Engineering",
-      description:
-        "Building and deploying advanced AI solutions, including LLMs, RAG pipelines, and custom inference systems, using TensorFlow and PyTorch. I specialize in fine-tuning models, optimizing performance, and integrating intelligent systems into scalable, real-world applications.",
+      description: "Architecting and deploying LLMs, RAG pipelines, and custom inference solutions using TensorFlow and PyTorch.",
+      bgImage: new URL('../AI engineering.jpg', import.meta.url).href
     },
     {
       icon: <Code size={28} />,
       color: "text-violet-600 dark:text-violet-400",
       bg: "bg-violet-50 dark:bg-violet-900/20",
       title: "Full Stack Dev",
-      description:
-        "Designing and developing responsive, high-performance web and mobile applications using React, React Native, Next.js, Node.js, and modern UI frameworks. I build scalable, maintainable solutions that deliver seamless user experiences and are optimized for speed, reliability, and long-term growth.",
+      description: "Building responsive, high-performance web applications with React, Next.js, Node.js and modern UI frameworks.",
+      bgImage: new URL('../full stack dev.jpg', import.meta.url).href
     },
     {
       icon: <Database size={28} />,
       color: "text-blue-600 dark:text-blue-400",
       bg: "bg-blue-50 dark:bg-blue-900/20",
       title: "Data Science",
-      description:
-        "Turning raw data into actionable insights through statistical analysis, predictive modeling, and clear visualizations. I help uncover patterns, inform decisions, and deliver data-driven solutions that drive measurable impact.",
+      description: "Transforming raw data into actionable insights via statistical analysis, predictive modeling, and visualization.",
+      bgImage: new URL('../data science.jpg', import.meta.url).href
     },
     {
       icon: <Server size={28} />,
       color: "text-emerald-600 dark:text-emerald-400",
       bg: "bg-emerald-50 dark:bg-emerald-900/20",
       title: "Cloud",
-      description:
-        "Implementing robust CI/CD pipelines and managing scalable cloud infrastructure with AWS, GCP, and Docker, ensuring efficient, reliable, and high-performance deployments for modern applications.",
+      description: "Implementing robust CI/CD pipelines and managing scalable infrastructure on AWS, GCP, and Docker.",
+      bgImage: new URL('../cloud.jpg', import.meta.url).href
     },
   ];
 
@@ -63,23 +63,38 @@ const About: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="glass-panel rounded-2xl p-8 hover:-translate-y-1 transition-all duration-300 group"
+              className="glass-panel rounded-2xl p-8 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
             >
-              <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${card.bg} ${card.color} group-hover:scale-110 transition-transform duration-300`}
-              >
-                {card.icon}
+              {/* Background image as an absolutely positioned img to ensure it displays */}
+              {card.bgImage && (
+                <img
+                  src={card.bgImage}
+                  alt=""
+                  aria-hidden
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+                />
+              )}
+              {/* stronger overlay for legibility */}
+              <div style={{ position: 'absolute', inset: 0, zIndex: 1 }} className="bg-gradient-to-br from-black/75 via-black/40 to-black/75 pointer-events-none" />
+              <div style={{ position: 'relative', zIndex: 2 }}>
+                <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 -mx-2">
+                  <div
+                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${card.bg} ${card.color} group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    {card.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 drop-shadow-lg">
+                    {card.title}
+                  </h3>
+                  <p className="text-white/90 leading-relaxed text-sm drop-shadow">
+                    {card.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                {card.title}
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
-                {card.description}
-              </p>
             </div>
           ))}
         </div>

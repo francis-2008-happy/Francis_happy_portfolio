@@ -6,6 +6,7 @@ export interface Project {
   githubUrl: string;
   liveUrl: string;
   imageUrl: string;
+  category: 'AI Engineering' | 'Full Stack Development' | 'Data Science';
 }
 
 export interface SkillCategory {

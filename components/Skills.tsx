@@ -16,9 +16,9 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const Skills: React.FC = () => {
   return (
-    <section id={SectionId.SKILLS} className="py-24 sm:py-32">
+    <section id={SectionId.SKILLS} className="py-16 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
             Technical Arsenal
           </h2>

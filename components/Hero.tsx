@@ -26,21 +26,21 @@ const Hero: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10">
         {/* Profile Image & Badge */}
-        <div className="group relative mb-8 animate-fade-in-up">
+        <div className="group relative mb-5 animate-fade-in-up">
           <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
-          <div className="relative w-40 h-40 sm:w-60 sm:h-60 p-1 bg-white dark:bg-slate-900 rounded-full ring-1 ring-slate-200 dark:ring-slate-700">
+          <div className="relative w-48 h-48 sm:w-72 sm:h-72 p-1 bg-white dark:bg-slate-900 rounded-full ring-1 ring-slate-200 dark:ring-slate-700">
             <img
               src={PROFILE_IMAGE_URL}
               alt="Francis Happy"
               className="w-full h-full object-cover rounded-full"
             />
           </div>
-          <div className="absolute bottom-2 right-2 px-3 py-1 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-lg flex items-center gap-2 animate-bounce animation-delay-2000">
+          {/* <div className="absolute bottom-2 right-2 px-3 py-1 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-lg flex items-center gap-2 animate-bounce animation-delay-2000">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">
               Open to Work
             </span>
-          </div>
+          </div> */}
         </div>
 
         {/* Intro Text */}
