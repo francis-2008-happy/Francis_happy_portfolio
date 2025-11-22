@@ -10,15 +10,31 @@ const Contact: React.FC = () => {
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
-    // Simulate API call
-    setTimeout(() => {
+
+    try {
+      // Replace with your actual API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+
       setStatus('success');
       setFormState({ name: '', email: '', message: '' });
       setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      setStatus('idle'); // Or a new 'error' status
+    }
   };
 
   return (
@@ -39,7 +55,7 @@ const Contact: React.FC = () => {
 
             <div className="space-y-6">
               {/* Email Block */}
-              <a href="francisbucci2@gmail.com" className="group flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300">
+              <a href="mailto:francisbucci2@gmail.com" className="group flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300">
                 <div className="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Mail size={24} />
                 </div>
@@ -66,7 +82,7 @@ const Contact: React.FC = () => {
                   <h3 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Connect Socially</h3>
                   <div className="flex gap-4">
                     {[
-                    { icon: <Github size={22} />, label: 'GitHub', href: '#' },
+                    { icon: <Github size={22} />, label: 'GitHub', href: 'https://github.com/francis-2008-happy' },
                     { icon: <Linkedin size={22} />, label: 'LinkedIn', href: '#' },
                     { icon: <Twitter size={22} />, label: 'Twitter', href: '#' },
                     ].map((social, idx) => (
