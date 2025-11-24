@@ -18,7 +18,7 @@ export default async function handler(
   // Create a transporter object using SMTP transport
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_SERVER_HOST,
-    port: Number(process.env.EMAIL_SERVER_PORT),
+    port: parseInt(process.env.EMAIL_SERVER_PORT || '465', 10),
     secure: true, // true for 465, false for other ports
     auth: {
       user: process.env.EMAIL_SERVER_USER,
